@@ -15,7 +15,8 @@ const searchParams = useSearchParams()
 const q = searchParams.get("q")
 
 console.log(pathname);
- 
+   
+// CLIENT SIDE NAVIGATION
     const handleClick = () => {
         console.log("clicked");
         router.push("/"); // we can use this to push the user to the homepage.
@@ -23,6 +24,11 @@ console.log(pathname);
         // router.refresh()
         // router.back() // to open up the previous page
         // router.forward() // go to next page
+
+        // const searchParams = useSearchParams();
+
+        // const q = searchParams.get("q")
+        // console.log(q)
 
     }
   return (
