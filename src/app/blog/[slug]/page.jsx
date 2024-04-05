@@ -1,7 +1,28 @@
+import PostUser from "@/components/postUser/PostUser";
 import styles from "./singlePost.module.css";
 import Image from "next/image";
+import { Suspense } from "react";
 
-const SinglePostPage = () => {
+// import this from data.js to fetch without an api
+// import { getPosts } from "../../../../lib/data";
+
+const getData = async (slug) => {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`);
+  if (!res.ok) {
+    throw new Error("something went wrong");
+  }
+  return res.json();
+};
+
+const SinglePostPage = async ({ params }) => {
+  const { slug } = params;
+
+  // fetch dat with an api
+  // const posts = await getData();
+
+
+  // fetch data without an api
+  const post = await getPost(slug)
   return (
     <div className={styles.container}>
       <div className={imgContainer}>
@@ -13,7 +34,7 @@ const SinglePostPage = () => {
         />
       </div>
       <div className={textContainer}>
-        <h1 className={styles.title}>Title</h1>
+        <h1 className={styles.title}>{post.title}</h1>
         <div className={styles.detail}>
           <Image
             className={styles.avatar}
@@ -21,10 +42,11 @@ const SinglePostPage = () => {
             alt="fill"
             fill
           />
-          <div className={styles.detailedText}>
-            <span className={styles.detailTitle}>Author</span>
-            <span className={styles.detailValue}>Solomon Razak</span>
-          </div>
+          {/* we can a create a component called skeleton to display when loading when using suspense */}
+          <Suspense fallback={<div>Loading...</div>}>
+            <PostUser userId={post.userId} />
+          </Suspense>
+
           <div className={styles.detailedText}>
             <span className={styles.detailTitle}>Published</span>
             <span className={styles.detailValue}>01.01.2024</span>

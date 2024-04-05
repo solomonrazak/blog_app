@@ -12,9 +12,9 @@ const PostCard = ({ post }) => {
         <span className={styles.date}>01.01.24</span>
       </div>
       <div className={styles.bottom}>
-        <h1 className={styles.title}>Title</h1>
-        <p className={styles.desc}>Desc</p>
-        <Link href="/blog/post">Read More</Link>
+        <h1 className={styles.title}>{post.title}</h1>
+        <p className={styles.desc}>{post.body}c</p>
+        <Link className={styles.link} href={`/blog/${post.id}`}>Read More</Link>
       </div>
     </div>
   );
