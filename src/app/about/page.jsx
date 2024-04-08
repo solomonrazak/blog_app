@@ -15,6 +15,7 @@ const AboutPage = () => {
           believe in good ideas flexibility and precission We’re world’s Our
           Special Team best consulting & finance solution provider. Wide range
           of web and software development services.
+          and we are going to do our best to make you good time 
         </p>
         <div className={styles.boxes}>
           <div className={styles.box}>

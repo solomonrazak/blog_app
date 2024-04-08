@@ -56,3 +56,7 @@ const postSchema = new mongoose.Schema({
         unique:true,
     }
 }, {timestamps:true})
+
+// so we are ready to create a new user a new post
+export const User = mongoose.models.User || mongoose.model("User", userSchema);
+export const Post = mongoose.models.Post || mongoose.model("Post", postSchema);
