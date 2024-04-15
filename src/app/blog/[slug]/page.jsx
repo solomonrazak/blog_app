@@ -22,10 +22,10 @@ const SinglePostPage = async ({ params }) => {
 
 
   // fetch data without an api
-  const post = await getPost(slug)
+  const post = await getData(slug)
   return (
     <div className={styles.container}>
-      <div className={imgContainer}>
+      <div className={styles.imgContainer}>
         <Image
           className={styles.img}
           src="https://images.pexels.com/photos/13289844/pexels-photo-13289844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
@@ -33,7 +33,7 @@ const SinglePostPage = async ({ params }) => {
           alt="singlePost"
         />
       </div>
-      <div className={textContainer}>
+      <div className={styles.textContainer}>
         <h1 className={styles.title}>{post.title}</h1>
         <div className={styles.detail}>
           <Image

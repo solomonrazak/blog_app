@@ -17,7 +17,7 @@ import { Post } from "./models"
 export const getPost = async () => {
     try {
       connectToDb();
-      const posts = await Post.find();
+      const posts = await Post.findOne({slug});
       return posts
     }
     catch(err){
