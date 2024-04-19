@@ -1,4 +1,6 @@
-import { Post } from "./models"
+import { Post, User } from "./models";
+import { connectToDb } from "./utils";
+import { unstable_noStore as noStore } from "next/cache";
 // TEMP DATA
   // const users = [
   //   {id: 1, name: 'John'},
@@ -15,6 +17,7 @@ import { Post } from "./models"
 
 // we are using export cause we will be using it in our components
 export const getPost = async () => {
+  noStore()
     try {
       connectToDb();
       const posts = await Post.findOne({slug});

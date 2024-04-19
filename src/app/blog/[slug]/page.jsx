@@ -3,6 +3,7 @@ import styles from "./singlePost.module.css";
 import Image from "next/image";
 import { Suspense } from "react";
 
+
 // import this from data.js to fetch without an api
 // import { getPosts } from "../../../../lib/data";
 
@@ -13,6 +14,11 @@ const getData = async (slug) => {
   }
   return res.json();
 };
+
+// SEO in dynamic pages
+export const generateMetadata = async ({params}) => {
+  const {slug} = params
+}
 
 const SinglePostPage = async ({ params }) => {
   const { slug } = params;
